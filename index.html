@@ -1,6 +1,12 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Material de estudo de Direito Internacional Público: sujeitos, fontes, tratados, imunidades, responsabilidade, ONU e CIJ, com simulado.">
+<meta name="author" content="Sérgio Lemos Carvalho · NeexFlow">
+<meta name="theme-color" content="#0e5e74">
 <title>Ordem Jurídica Internacional</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -154,12 +160,36 @@ footer.prod .agency{font-family:var(--f-display);font-size:1.2rem;font-weight:60
   body{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+[hidden]{display:none!important}
+/* Busca global */
+.search{position:relative;margin:16px 0 4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.search input{font:inherit;font-size:.92rem;width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.search input:focus{border-color:var(--acc);outline:none;box-shadow:0 0 0 3px var(--acc-soft)}
+.sresults{margin-top:6px;border:1px solid var(--line);border-radius:8px;background:var(--surface);max-height:60vh;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.sresults .scount{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--line);display:block}
+.sresults a{display:block;padding:9px 12px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:.84rem;line-height:1.4}
+.sresults a:last-child{border-bottom:none}
+.sresults a:hover,.sresults a.cur{background:var(--acc-soft)}
+.sresults a small{display:block;font-family:var(--f-mono);font-size:.68rem;color:var(--acc);margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em}
+.sresults mark,.hit mark{background:var(--gold-soft);color:inherit;border-radius:2px;padding:0 1px}
+.sresults .snone{padding:10px 12px;font-size:.85rem;color:var(--muted)}
+.flash{animation:flash 2.2s ease-out}
+@keyframes flash{0%,40%{background:var(--gold-soft);box-shadow:0 0 0 6px var(--gold-soft)}100%{background:transparent;box-shadow:none}}
 </style>
+<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
 
 <div class="wrap">
 <nav class="toc" aria-label="Sumário">
   <div class="brand">Ordem Jurídica Internacional<small>Material de estudo · Direito Internacional Público</small></div>
   <a class="ver" id="verBadge" href="#versoes">versão —</a>
+  <div class="search" role="search">
+    <label for="sQuery" class="sr">Buscar no material</label>
+    <input type="search" id="sQuery" placeholder="Buscar no material (tecla /)" autocomplete="off" aria-controls="sResults">
+    <div id="sResults" class="sresults" hidden></div>
+  </div>
   <div class="progress"><span id="progTxt">0 de 12 unidades estudadas</span><div class="bar"><i id="progBar"></i></div></div>
   <ol id="tocList">
     <li><a href="#sociedade"><span>01</span>Sociedade e princípios</a></li>
@@ -1144,6 +1174,7 @@ footer.prod .agency{font-family:var(--f-display);font-size:1.2rem;font-weight:60
   <div><h4>Agência digital</h4><p class="agency"><a href="https://neexflow.com.br" target="_blank" rel="noopener">NeexFlow</a></p><p><a href="https://neexflow.com.br" target="_blank" rel="noopener">neexflow.com.br</a></p></div>
   <div><h4>Conteúdo</h4><p>Baseado nas aulas do Prof. Dr. Adriano da Silva Ribeiro (Universidade FUMEC, 2º sem. 2026), nos tratados oficiais e na jurisprudência do STF e da CIJ.</p></div>
   <div><h4>Versão</h4><p id="footVer">—</p></div>
+  <div><h4>Estatísticas</h4><p>Visitas contadas de forma anônima pelo GoatCounter, sem cookies e sem dados pessoais.</p></div>
 </footer>
 </main>
 </div>
@@ -1154,6 +1185,10 @@ footer.prod .agency{font-family:var(--f-display);font-size:1.2rem;font-weight:60
 
   /* ===== Controle de versão: adicione a nova versão NO TOPO ===== */
   const VERSIONS=[
+    {v:"1.1",date:"2026-10-27",title:"Busca no material",items:[
+      "Campo de busca no sumário: procura em todas as unidades, na revisão e no glossário, ignorando acentos.",
+      "Clique num resultado (ou use as setas e Enter) para ir direto ao trecho; atalho: tecla / para buscar e Esc para limpar.",
+      "Contador anônimo de acessos na versão publicada no GitHub (GoatCounter, sem cookies)."]},
     {v:"1.0",date:"2026-10-26",title:"Primeira versão",items:[
       "Conteúdo integral de 30 arquivos da disciplina em 12 unidades, na ordem da apostila.",
       "Listas de fixação do professor com gabarito em cada unidade e revisão comentada.",
@@ -1433,5 +1468,75 @@ footer.prod .agency{font-family:var(--f-display);font-size:1.2rem;font-weight:60
   if(location.hash){const t=document.getElementById(location.hash.slice(1));if(t)t.scrollIntoView()}
 })();
 </script>
+<script>
+  /* ===== Busca global ===== */
+  (function(){
+    const inp=document.getElementById('sQuery'),box=document.getElementById('sResults');
+    const norm=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+    const skip=new Set(['simulado','versoes','referencias']);
+    let idx=null,cur=-1,n=0;
+    function build(){
+      idx=[];
+      document.querySelectorAll('section.unit').forEach(sec=>{
+        if(skip.has(sec.id))return;
+        const h2=sec.querySelector('h2');const unit=(sec.querySelector('.num')?sec.querySelector('.num').textContent+' · ':'')+(h2?h2.textContent:'');
+        sec.querySelectorAll('h3,h4,p,li,tr,blockquote,.gl,summary').forEach(el=>{
+          if(el.closest('.qtools,.gtools,.unit-head'))return;
+          if(el.tagName==='P'&&el.closest('li,td,.gl,.ans'))return;
+          if(el.tagName==='LI'&&el.closest('.route'))return;
+          if(el.tagName==='TR'&&el.querySelector('th'))return;
+          const t=el.textContent.replace(/\s+/g,' ').trim();if(t.length<3)return;
+          if(!el.id)el.id='s'+(++n);
+          idx.push({el,id:el.id,unit,t,nt:norm(t)});
+        });
+      });
+    }
+    function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+    function snip(item,terms){
+      const p=item.nt.indexOf(terms[0]);const st=Math.max(0,p-60);
+      let s=item.t.slice(st,st+180);let ns=norm(s);
+      let out='',i=0;const ranges=[];
+      terms.forEach(tm=>{let k=ns.indexOf(tm);while(k>-1){ranges.push([k,k+tm.length]);k=ns.indexOf(tm,k+tm.length)}});
+      ranges.sort((a,b)=>a[0]-b[0]);
+      ranges.forEach(([a,b])=>{if(a<i)return;out+=esc(s.slice(i,a))+'<mark>'+esc(s.slice(a,b))+'</mark>';i=b});
+      out+=esc(s.slice(i));
+      return (st>0?'… ':'')+out+(st+180<item.t.length?' …':'');
+    }
+    function run(){
+      const v=norm(inp.value.trim());
+      if(v.length<2){box.hidden=true;box.innerHTML='';return}
+      if(!idx)build();
+      const terms=v.split(/\s+/).filter(Boolean);
+      const sc=x=>(x.nt.includes(v)?0:2)+(/^H[34]$/.test(x.el.tagName)?0:1);
+      const res=idx.filter(x=>terms.every(t=>x.nt.includes(t))).map((x,i)=>[sc(x),i,x]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]).map(r=>r[2]);
+      cur=-1;
+      if(!res.length){box.innerHTML='<div class="snone">Nada encontrado. Tente outro termo ou menos palavras.</div>';box.hidden=false;return}
+      const shown=res.slice(0,40);
+      box.innerHTML='<span class="scount">'+res.length+' resultado'+(res.length>1?'s':'')+(res.length>40?' · mostrando 40':'')+'</span>'+shown.map(x=>'<a href="#'+x.id+'" data-id="'+x.id+'"><small>'+esc(x.unit)+'</small>'+snip(x,terms)+'</a>').join('');
+      box.hidden=false;
+    }
+    function go(id){
+      const el=document.getElementById(id);if(!el)return;
+      const det=el.closest('details');if(det)det.open=true;
+      el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+      el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+      history.replaceState(null,'','#'+id);
+    }
+    inp.addEventListener('input',run);
+    inp.addEventListener('focus',()=>{if(inp.value.trim().length>=2)run()});
+    box.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();go(a.dataset.id)});
+    inp.addEventListener('keydown',e=>{
+      const links=[...box.querySelectorAll('a')];
+      if(e.key==='Escape'){inp.value='';run();inp.blur();return}
+      if(!links.length)return;
+      if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();cur=(cur+(e.key==='ArrowDown'?1:-1)+links.length)%links.length;links.forEach((l,i)=>l.classList.toggle('cur',i===cur));links[cur].scrollIntoView({block:'nearest'})}
+      if(e.key==='Enter'){e.preventDefault();go(links[Math.max(cur,0)].dataset.id)}
+    });
+    document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)){e.preventDefault();inp.focus()}});
+  })();
+</script>
 
-</body></html>
+
+<script data-goatcounter="https://sergiolemos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
